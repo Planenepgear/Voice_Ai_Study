@@ -48,6 +48,14 @@ namespace Oculus.Voice.Demo.UIShapesDemo
             UpdateColor(colorNames, shapes);
         }
 
+
+        // Add
+        public void UpdateColor(string[] values)
+        {
+            UpdateColor(new string[] { values[0] }, new string[] { values[1] });
+        }
+
+
         /// <summary>
         /// Updates the colors of a set of shape, or all colors split across the shapes
         /// </summary>

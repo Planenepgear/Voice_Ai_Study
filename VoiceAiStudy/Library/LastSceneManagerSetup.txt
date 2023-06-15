@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Oculus/Voice/Demo/Scenes/UIShapesDemo.unity
+- path: Assets/_Projects/Scene/ShapesDemo.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
