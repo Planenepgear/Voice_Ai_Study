@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/_Projects/Scene/ShapesDemo.unity
+- path: Assets/_Projects/Scene/1_CharacterAnimationDemo.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

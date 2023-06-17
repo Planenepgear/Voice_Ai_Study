@@ -414,6 +414,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
+"Assets/_Projects/Scripts/CategorieBasedResponse.cs"
 -langversion:9.0
 
 /deterministic

@@ -31,6 +31,9 @@ MonoBehaviour:
         id: 286797253817997
       - name: shape:shape
         id: 1006469830362907
+    - id: 213752434928707
+      name: character_reaction_animation
+      entities: []
     entities:
     - name: color
       id: 1020470022468561
@@ -122,10 +125,15 @@ MonoBehaviour:
       - keyword: sphere
         synonyms:
         - ball
+        - bar
+        - bore
+        - boss
+        - bus
         - circle
         - fear
         - globe
         - peer
+        - poor
         - round
         - seer
         - sere
