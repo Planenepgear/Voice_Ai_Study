@@ -17,8 +17,10 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
 
         private int animationSwitchHash;
 
-        public TextMeshProUGUI showReply;
-        private string replyText;
+        [SerializeField] TextMeshProUGUI showReply;
+        //private bool isLock = false;  // When there are four values locking is only used to two values of the method.
+        private string replyTextSingle;
+        private string replyTextDouble;
 
 
         private void Awake()
@@ -71,67 +73,162 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
             }
         }
 
-        public void GetReply(string[] values)
+        public void GetSingleReply(string[] values)
         {
-            if(values[1].Length != 0 && values[0] == "greeting")
+            //if (values[3].Length == 0)
+            if (values.Length == 2)
             {
-                if(values[1] == "hello")
+                if (values[1].Length != 0 && values[0] == "greeting")
                 {
-                    replyText = "Hi";
-                }
-                else if (values[1] == "Hi")
-                {
-                    replyText = "Hello";
-                }
-                else if (values[1] == "Hi there")
-                {
-                    replyText = "Hello";
+                    if (values[1] == "hello")
+                    {
+                        replyTextSingle = "Hi";
+                    }
+                    else if (values[1] == "Hi")
+                    {
+                        replyTextSingle = "Hello";
+                    }
+                    else if (values[1] == "Hi there")
+                    {
+                        replyTextSingle = "Hello";
+                    }
+
+                    showReply.text = "Replay: " + replyTextSingle;
+                    UpdateAnimation("greeting");
                 }
 
-                showReply.text = "Replay: " + replyText;
-                UpdateAnimation("greeting");
-            }
+                if (values[1].Length != 0 && values[0] == "normal_dialogue")
+                {
+                    if (values[1] == "How are you")
+                    {
+                        replyTextSingle = "I'm fine, thank you!";
+                    }
+                    else if (values[1] == "Where are you from")
+                    {
+                        replyTextSingle = "I'm from Korean.";
+                    }
+                    else if (values[1] == "What is your name" || values[1] == "name")
+                    {
+                        replyTextSingle = "My name is Alice.";
+                    }
 
-            if (values[1].Length != 0 && values[0] == "normal_dialogue")
-            {
-                if (values[1] == "How are you")
-                {
-                    replyText = "I'm fine, thank you!";
-                }
-                else if (values[1] == "Where are you from")
-                {
-                    replyText = "I'm from Korean.";
-                }
-                else if (values[1] == "What is your name" || values[1] == "name")
-                {
-                    replyText = "My name is Alice.";
-                }
-
-                showReply.text = "Replay: " + replyText;
-                UpdateAnimation("normal_dialogue");
-            }
-
-            if (values[1].Length != 0 && values[0] == "say_goodbye")
-            {
-                if (values[1] == "Goodbye")
-                {
-                    replyText = "Bye bye";
-                }
-                else if (values[1] == "see you")
-                {
-                    replyText = "see you next time!";
-                }
-                else if (values[1] == "bye")
-                {
-                    replyText = "Goodbye!";
+                    showReply.text = "Replay: " + replyTextSingle;
+                    UpdateAnimation("normal_dialogue");
                 }
 
-                showReply.text = "Replay: " + replyText;
-                UpdateAnimation("say_goodbye");
+                if (values[1].Length != 0 && values[0] == "say_goodbye")
+                {
+                    if (values[1] == "Goodbye")
+                    {
+                        replyTextSingle = "Bye bye";
+                    }
+                    else if (values[1] == "see you")
+                    {
+                        replyTextSingle = "see you next time!";
+                    }
+                    else if (values[1] == "bye")
+                    {
+                        replyTextSingle = "Goodbye!";
+                    }
+
+                    showReply.text = "Replay: " + replyTextSingle;
+                    UpdateAnimation("say_goodbye");
+                }
+
+                Debug.Log("Single Reply Mod");
+                Debug.Log(values.Length);
             }
         }
 
+        public string GetSingleReply(string aniValue, string queValue)
+        {
+            if (queValue.Length != 0 && aniValue == "greeting")
+            {
+                if (queValue == "hello")
+                {
+                    replyTextSingle = "Hi";
+                }
+                else if (queValue == "Hi")
+                {
+                    replyTextSingle = "Hello";
+                }
+                else if (queValue == "Hi there")
+                {
+                    replyTextSingle = "Hello";
+                }
+
+                //showReply.text = "Replay: " + replyTextSingle;
+                UpdateAnimation("greeting");
+            }
+
+            if (queValue.Length != 0 && aniValue == "normal_dialogue")
+            {
+                if (queValue == "How are you")
+                {
+                    replyTextSingle = "I'm fine, thank you!";
+                }
+                else if (queValue == "Where are you from")
+                {
+                    replyTextSingle = "I'm from Korean.";
+                }
+                else if (queValue == "What is your name" || queValue == "name")
+                {
+                    replyTextSingle = "My name is Alice.";
+                }
+
+                //showReply.text = "Replay: " + replyTextSingle;
+                UpdateAnimation("normal_dialogue");
+            }
+
+            if (queValue.Length != 0 && aniValue == "say_goodbye")
+            {
+                if (queValue == "Goodbye")
+                {
+                    replyTextSingle = "Bye bye";
+                }
+                else if (queValue == "see you")
+                {
+                    replyTextSingle = "see you next time!";
+                }
+                else if (queValue == "bye")
+                {
+                    replyTextSingle = "Goodbye!";
+                }
+
+                showReply.text = "Replay: " + replyTextSingle;
+                UpdateAnimation("say_goodbye");
+            }
+
+            return replyTextSingle;
+        }
+
+        public void GetDoubleReply(string[] values)
+        {
+            if (values[0].Length != 0 && values[2].Length != 0)
+            {
+                replyTextDouble = GetSingleReply(values[0], values[1]) + ", " + GetSingleReply(values[2], values[3]);
+            }
+            else if (values[0].Length != 0)
+            {
+                replyTextDouble = GetSingleReply(values[0], values[1]);
+            }
+            else if (values[2].Length != 0)
+            {
+                replyTextDouble = GetSingleReply(values[2], values[3]);
+            }
+            else if (values[4].Length != 0)
+            {
+                replyTextDouble = GetSingleReply(values[4], values[5]);
+            }
+
+            showReply.text = "Replay: " + replyTextDouble;
+            //UpdateAnimation("greeting");
+            Debug.Log("Double Reply Mod");
+            Debug.Log(values.Length);
+        }
     }
+
+
 
 }
 

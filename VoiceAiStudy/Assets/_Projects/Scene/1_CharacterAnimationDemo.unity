@@ -135,12 +135,12 @@ GameObject:
   - component: {fileID: 44266856}
   - component: {fileID: 44266857}
   m_Layer: 0
-  m_Name: AnimationChanegeResponseMatcher (2)
+  m_Name: AnimationChanegeResponseMatcher (2Value-2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &44266856
 Transform:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1094580981}
         m_TargetAssemblyTypeName: Oculus.Voice.Demo.CharacterAnimationDemo.CategorieBasedResponse,
           Assembly-CSharp
-        m_MethodName: GetReply
+        m_MethodName: GetSingleReply
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Null
+  m_text: 'Replay: None'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -654,12 +654,12 @@ GameObject:
   - component: {fileID: 607828138}
   - component: {fileID: 607828139}
   m_Layer: 0
-  m_Name: AnimationChanegeResponseMatcher (1)
+  m_Name: AnimationChanegeResponseMatcher (2Value-1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &607828138
 Transform:
   m_ObjectHideFlags: 0
@@ -746,7 +746,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1094580981}
         m_TargetAssemblyTypeName: Oculus.Voice.Demo.CharacterAnimationDemo.CategorieBasedResponse,
           Assembly-CSharp
-        m_MethodName: GetReply
+        m_MethodName: GetSingleReply
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1241,6 +1241,130 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044554202}
   m_CullTransparentMesh: 1
+--- !u!1 &1060341664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1060341665}
+  - component: {fileID: 1060341666}
+  m_Layer: 0
+  m_Name: AnimationChanegeResponseMatcher (4Value)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1060341665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060341664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1365053327}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1060341666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060341664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591c3d6f017c11b4faa41506d75635b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Voice: {fileID: 1226929198}
+  ValidateEarly: 0
+  intent: categorie_inputDialogue
+  confidenceThreshold: 0.6
+  valueMatchers:
+  - path: entities.greeting:greeting[0].name
+    witValueReference: {fileID: 0}
+    contentRequired: 1
+    matchMethod: 0
+    comparisonMethod: 0
+    matchValue: 
+    floatingPointComparisonTolerance: 0.00009999999747378752
+    allowConfidenceOverlap: 0
+    confidenceRanges: []
+  - path: entities.greeting:greeting[0].value
+    witValueReference: {fileID: 0}
+    contentRequired: 1
+    matchMethod: 0
+    comparisonMethod: 0
+    matchValue: 
+    floatingPointComparisonTolerance: 0.00009999999747378752
+    allowConfidenceOverlap: 0
+    confidenceRanges: []
+  - path: entities.normal_dialogue:normal_dialogue[0].name
+    witValueReference: {fileID: 0}
+    contentRequired: 1
+    matchMethod: 0
+    comparisonMethod: 0
+    matchValue: 
+    floatingPointComparisonTolerance: 0.00009999999747378752
+    allowConfidenceOverlap: 0
+    confidenceRanges: []
+  - path: entities.normal_dialogue:normal_dialogue[0].value
+    witValueReference: {fileID: 0}
+    contentRequired: 1
+    matchMethod: 0
+    comparisonMethod: 0
+    matchValue: 
+    floatingPointComparisonTolerance: 0.00009999999747378752
+    allowConfidenceOverlap: 0
+    confidenceRanges: []
+  formattedValueEvents:
+  - format: 'User_said: {1}   Animation used: {0}  {2}{3}{4}{5}'
+    onFormattedValueEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1323714818}
+          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_MethodName: set_text
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  onMultiValueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1094580981}
+        m_TargetAssemblyTypeName: Oculus.Voice.Demo.CharacterAnimationDemo.CategorieBasedResponse,
+          Assembly-CSharp
+        m_MethodName: GetDoubleReply
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDidNotMatch:
+    m_PersistentCalls:
+      m_Calls: []
+  onOutOfDomain:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1094580978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2013,12 +2137,12 @@ GameObject:
   - component: {fileID: 1352298668}
   - component: {fileID: 1352298669}
   m_Layer: 0
-  m_Name: AnimationChanegeResponseMatcher (3)
+  m_Name: AnimationChanegeResponseMatcher (2Value-3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1352298668
 Transform:
   m_ObjectHideFlags: 0
@@ -2105,7 +2229,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1094580981}
         m_TargetAssemblyTypeName: Oculus.Voice.Demo.CharacterAnimationDemo.CategorieBasedResponse,
           Assembly-CSharp
-        m_MethodName: GetReply
+        m_MethodName: GetSingleReply
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2153,6 +2277,7 @@ Transform:
   - {fileID: 607828138}
   - {fileID: 44266856}
   - {fileID: 1352298668}
+  - {fileID: 1060341665}
   m_Father: {fileID: 1226929199}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2167,12 +2292,12 @@ GameObject:
   - component: {fileID: 1391814333}
   - component: {fileID: 1391814334}
   m_Layer: 0
-  m_Name: AnimationChanegeResponseMatcher
+  m_Name: AnimationChanegeResponseMatcher (6Value)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1391814333
 Transform:
   m_ObjectHideFlags: 0
@@ -2282,20 +2407,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1094580981}
         m_TargetAssemblyTypeName: Oculus.Voice.Demo.CharacterAnimationDemo.CategorieBasedResponse,
           Assembly-CSharp
-        m_MethodName: UpdateAnimation
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 1094580981}
-        m_TargetAssemblyTypeName: Oculus.Voice.Demo.CharacterAnimationDemo.CategorieBasedResponse,
-          Assembly-CSharp
-        m_MethodName: GetReply
+        m_MethodName: GetDoubleReply
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
