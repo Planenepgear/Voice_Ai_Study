@@ -73,6 +73,12 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
             }
         }
 
+        private void BackToIdleAnimation()
+        {
+            animator.SetTrigger("start_back_idle");
+        }
+
+
         public void GetSingleReply(string[] values)
         {
             //if (values[3].Length == 0)
@@ -96,8 +102,7 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
                     showReply.text = "Replay: " + replyTextSingle;
                     UpdateAnimation("greeting");
                 }
-
-                if (values[1].Length != 0 && values[0] == "normal_dialogue")
+                else if (values[1].Length != 0 && values[0] == "normal_dialogue")
                 {
                     if (values[1] == "How are you")
                     {
@@ -115,8 +120,7 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
                     showReply.text = "Replay: " + replyTextSingle;
                     UpdateAnimation("normal_dialogue");
                 }
-
-                if (values[1].Length != 0 && values[0] == "say_goodbye")
+                else if (values[1].Length != 0 && values[0] == "say_goodbye")
                 {
                     if (values[1] == "Goodbye")
                     {
@@ -134,6 +138,8 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
                     showReply.text = "Replay: " + replyTextSingle;
                     UpdateAnimation("say_goodbye");
                 }
+
+                BackToIdleAnimation();
 
                 Debug.Log("Single Reply Mod");
                 Debug.Log(values.Length);
@@ -160,8 +166,7 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
                 //showReply.text = "Replay: " + replyTextSingle;
                 UpdateAnimation("greeting");
             }
-
-            if (queValue.Length != 0 && aniValue == "normal_dialogue")
+            else if (queValue.Length != 0 && aniValue == "normal_dialogue")
             {
                 if (queValue == "How are you")
                 {
@@ -179,8 +184,7 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
                 //showReply.text = "Replay: " + replyTextSingle;
                 UpdateAnimation("normal_dialogue");
             }
-
-            if (queValue.Length != 0 && aniValue == "say_goodbye")
+            else if (queValue.Length != 0 && aniValue == "say_goodbye")
             {
                 if (queValue == "Goodbye")
                 {
@@ -195,7 +199,7 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
                     replyTextSingle = "Goodbye!";
                 }
 
-                showReply.text = "Replay: " + replyTextSingle;
+                //showReply.text = "Replay: " + replyTextSingle;
                 UpdateAnimation("say_goodbye");
             }
 
@@ -222,7 +226,8 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
             }
 
             showReply.text = "Replay: " + replyTextDouble;
-            //UpdateAnimation("greeting");
+            //BackToIdleAnimation();
+
             Debug.Log("Double Reply Mod");
             Debug.Log(values.Length);
         }
