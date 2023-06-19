@@ -174,7 +174,7 @@ namespace Oculus.Voice.Demo.CharacterAnimationDemo
                 }
                 else if (queValue == "Where are you from")
                 {
-                    replyTextSingle = "I'm from Korean.";
+                    replyTextSingle = "I'm from Korea.";
                 }
                 else if (queValue == "What is your name" || queValue == "name")
                 {
